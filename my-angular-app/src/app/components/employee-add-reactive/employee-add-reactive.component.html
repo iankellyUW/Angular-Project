@@ -1,0 +1,39 @@
+<h1>Add Employee - Reactive Form Approach</h1>
+
+<form (submit)="onFormSubmit()" [formGroup]="employeeForm">
+    <label>Enter Employee Name: </label>
+    <input type="text" name="name" formControlName="name">
+    <span *ngIf="employeeForm.controls['name'].invalid
+            && employeeForm.controls['name'].touched">
+        <span *ngIf="employeeForm.controls['name'].errors['required']">Name is Required</span>
+        <span *ngIf="employeeForm.controls['name'].errors['pattern']">Pattern Allowed: [a-zA-Z ]+</span>
+    </span>
+    <br /> <br />
+    <label>Enter Employee City: </label>
+    <input type="text" name="city" formControlName="city">
+    <span *ngIf="employeeForm.controls['city'].invalid
+            && employeeForm.controls['city'].touched">
+        <span *ngIf="employeeForm.controls['city'].errors['required']">City is Required</span>
+        <span *ngIf="employeeForm.controls['city'].errors['pattern']">Pattern Allowed: [a-zA-Z ]+</span>
+    </span>
+    <br /> <br />
+    <label>Enter Employee Salary: </label>
+    <input type="text" name="salary" formControlName="salary">
+    <span *ngIf="employeeForm.controls['salary'].invalid
+            && employeeForm.controls['salary'].touched">
+        <span *ngIf="employeeForm.controls['salary'].errors['required']">Name is Required</span>
+        <span *ngIf="employeeForm.controls['salary'].errors['pattern']">Pattern Allowed: [0-9]+</span>
+        <span *ngIf="employeeForm.controls['salary'].errors['minLength']">Minimum Length is 4</span>
+        <span *ngIf="employeeForm.controls['salary'].errors['maxLength']">Maximum Length is 4</span>
+    </span>
+    <br /> <br />
+    <label>Enter Employee Department: </label>
+    <input type="text" name="department" formControlName="department">
+    <span *ngIf="employeeForm.controls['department'].invalid
+            && employeeForm.controls['department'].touched">
+        <span *ngIf="employeeForm.controls['department'].errors['required']">Name is Required</span>
+        <span *ngIf="employeeForm.controls['department'].errors['pattern']">Pattern Allowed: [a-zA-Z ]+</span>
+    </span>
+    <br /> <br />
+    <input type="submit" value="Add Employee" [disabled]="!employeeForm.valid">
+</form>

@@ -1,0 +1,12 @@
+<hr>
+<div class="employee_box" *ngFor="let e of employees">
+  <h2>{{e.name}}</h2>
+  Employee ID: {{e.id}} <br />
+  City: {{e.city}} <br />
+  Department: {{e.department}} <br />
+  Salary: ${{e.salary}} <br />
+</div>
+<div>
+  <button (click)="sortSalary(1)">Sort by Salary - ASC</button> &nbsp;
+  <button (click)="sortSalary(0)">Sort by Salary - DESC</button>
+</div>

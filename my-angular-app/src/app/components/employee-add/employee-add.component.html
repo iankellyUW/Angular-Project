@@ -1,0 +1,36 @@
+<h1>Employee Registration : Template Based Approach</h1>
+
+<form (submit)="onFormSubmit(employeeForm)" #employeeForm="ngForm">
+    <label>Enter Employee Name: </label>
+    <input type="text" name="name" ngModel #name="ngModel" required pattern="[a-zA-Z ]+">
+    <span *ngIf="name.invalid && name.touched">
+        <span *ngIf="name.errors['required']"> Name is Required </span>
+        <span *ngIf="name.errors['pattern']"> Name must match pattern</span>
+    </span>
+    <br /> <br />
+    <label>Enter Employee City: </label>
+    <input type="text" name="city" ngModel #city="ngModel" required pattern="[a-zA-Z ]+">
+    <span *ngIf="city.invalid && name.touched">
+        <span *ngIf="city.errors['required']"> City is Required </span>
+        <span *ngIf="city.errors['pattern']"> City must match pattern</span>
+    </span>
+    <br /> <br />
+    <label>Enter Employee Salary: </label>
+    <input type="text" name="salary" ngModel #salary="ngModel" required pattern="[0-9]+"
+      minlength="4" maxlength="10">
+    <span *ngIf="salary.invalid && name.touched">
+        <span *ngIf="salary.errors['required']"> Salary is Required </span>
+        <span *ngIf="salary.errors['pattern']"> Salary must be a number</span>
+        <span *ngIf="salary.errors['minlength']"> Minimum length is 4</span>
+    </span>
+    <br /> <br />
+    <label>Enter Employee Dept: </label>
+    <input type="text" name="department" ngModel #department="ngModel" 
+        required pattern="[a-zA-Z ]+">
+    <span *ngIf="name.invalid && name.touched">
+        <span *ngIf="name.errors['required']"> Department is Required </span>
+        <span *ngIf="name.errors['pattern']"> Department must match pattern</span>
+    </span>
+    <br /> <br />
+    <input type="submit" value="Add Employee" [disabled]="!employeeForm.valid">
+</form>

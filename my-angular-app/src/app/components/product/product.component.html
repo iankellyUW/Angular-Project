@@ -1,0 +1,8 @@
+<h1>Products</h1>
+<div *ngIf="!(errorMsg == '')">{{errorMsg}}</div>
+<div *ngFor="let p of products">
+    Name: {{p.name}} <br />
+    Price: {{p.price}} <br />
+    ID: {{p.id}} <br />
+    <hr>
+</div>
